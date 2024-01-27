@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Endless Idea Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        #idea-display {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+        #generate-button, #generate-title-button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: lightblue;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            margin: 10px;
+        }
+        #generate-button:hover, #generate-title-button:hover {
+            background-color: lightgreen;
+        }
+    </style>
+</head>
+<body>
+    <h1>Endless Idea Generator</h1>
+    <button id="generate-button">Generate Idea</button>
+    <button id="generate-title-button">Generate Title</button>
+    <div id="idea-display"></div>
+
+    <script>
+        // Define an array of categories
+        var categories = [
+            "Tips",
+            "Skills",
+            "Tools",
+            "Traits",
+            "Steps",
+            "Goals",
+            "Books",
+            "Habits",
+            "Stories",
+            "Quotes",
+            "Secrets",
+            "Insights",
+            "Datapoints",
+            "Realizations",
+            "Frameworks",
+            "Benefits",
+            "Lessons",
+            "Reasons",
+            "Creators",
+            "Routines",
+            "Mistakes",
+            "Podcasts",
+            "Examples",
+            "Questions",
+            "Inventions",
+            "Templates",
+            "Resources",
+            "Challenges",
+            "Companies",
+            "Presentations"
+        ];
+
+        // Additional set of hooks
+        var hooks = [
+            "Isn't enough!",
+            "I (actually) do ____ this",
+            "This isn't a regular post",
+            "Here's something I've been hiding",
+            "How I ____",
+            "Why I say no to _____"
+        ];
+
+        // Function to generate a random category
+        function generateCategory() {
+            var randomIndex = Math.floor(Math.random() * categories.length);
+            var randomCategory = categories[randomIndex];
+            return randomCategory;
+        }
+
+        // Function to generate a random hook
+        function generateHook() {
+            var randomIndex = Math.floor(Math.random() * hooks.length);
+            var randomHook = hooks[randomIndex];
+            return randomHook;
+        }
+
+        // Event listener for the button click to generate an idea
+        document.getElementById('generate-button').addEventListener('click', function() {
+            var ideaDisplay = document.getElementById('idea-display');
+            var generatedCategory = generateCategory();
+            ideaDisplay.textContent = "Generate ideas related to: " + generatedCategory;
+        });
+
+        // Event listener for the button click to generate a title combining category and hook
+        document.getElementById('generate-title-button').addEventListener('click', function() {
+            var ideaDisplay = document.getElementById('idea-display');
+            var generatedCategory = generateCategory();
+            var generatedHook = generateHook();
+            ideaDisplay.textContent = "Title: " + generatedHook + " " + generatedCategory; // Combine hook and category
+        });
+    </script>
+</body>
+</html>
